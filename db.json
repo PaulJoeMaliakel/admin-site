@@ -1,0 +1,29 @@
+{
+  "delivery-man": [
+    {
+      "name": "asdfasdfsdfsdfsdf11",
+      "email": "sfsfsdfsdf",
+      "contact": 4343343434,
+      "vehicleType": "erfgertert",
+      "gender": "male",
+      "status": "active",
+      "address": "dfgdfgdfgsdgdsdg",
+      "id": 1
+    },
+    {
+      "name": "",
+      "email": "",
+      "contact": "",
+      "contactName": "",
+      "openingTime": "",
+      "closingTime": "",
+      "orderMin": "",
+      "packagingCharge": "",
+      "offerminCharge": "",
+      "offerPercent": "",
+      "status": "",
+      "address": "",
+      "id": 2
+    }
+  ]
+}

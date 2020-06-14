@@ -1,3 +1,4 @@
+<div class="container-fluid">
 <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" id="pending-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="true">Pending orders</a>
@@ -9,6 +10,9 @@
       <a class="nav-link" id="process-tab" data-toggle="tab" href="#process" role="tab" aria-controls="process" aria-selected="false">Processing orders</a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" id="ongoing-tab" data-toggle="tab" href="#ongoing" role="tab" aria-controls="ongoing" aria-selected="false">ongoing orders</a>
+      </li>
+    <li class="nav-item">
         <a class="nav-link" id="Complete-tab" data-toggle="tab" href="#Complete" role="tab" aria-controls="Complete" aria-selected="false">Completed orders</a>
       </li>
       <li class="nav-item">
@@ -19,7 +23,7 @@
     <div class="tab-pane fade  show active" id="pending" role="tabpanel" aria-labelledby="pending-tab">
 
 
-        <div class="container">
+        <div class="container-fluid">
         <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-2">
@@ -28,8 +32,25 @@
               <div class="col-md-8">
                 <div class="card-body">
                   <h3 class="card-title">McDonalds</h3>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  <div class='row'>
+                      <div class="col-4">
+                        <p>Status:Pending</p>
+                      </div>
+                      <div class="col-4">
+                        <p>Order no:</p>
+                        
+                    </div>
+                    <div class="col-4">
+                        <p><i class="fa fa-clock-o" aria-hidden="true"></i>minutes ago</p>
+                        
+                    </div>
+                  </div>
+                  <p style="color:green">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  </p>
+                  <p style="color:red">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  </p>
                 </div>
               </div>
               <div class="col-md-2">
@@ -50,17 +71,270 @@
     </div>
     <div class="tab-pane fade" id="approved" role="tabpanel" aria-labelledby="approved-tab">
 
+
+
+
+        <div class="container-fluid">
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                  <div class="col-md-2">
+                    <img src="" class="card-img" alt="">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h3 class="card-title">McDonalds</h3>
+                      <div class='row'>
+                          <div class="col-4">
+                            <p>Status:Approved</p>
+                          </div>
+                          <div class="col-4">
+                            <p>Order no:</p>
+                            
+                        </div>
+                        <div class="col-4">
+                            <p><i class="fa fa-clock-o" aria-hidden="true"></i>minutes ago</p>
+                            
+                        </div>
+                      </div>
+                      <p style="color:green">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      </p>
+                      <p style="color:red">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="card-body ml-auto">
+                        <button style="width:100px;margin-bottom: 10px;" type="button" class="btn btn-success">Process</button>
+                        <button style="width:100px;margin-bottom: 10px;"type="button" class="btn btn-warning">details</button>
+                        <button style="width:100px" type="button" class="btn btn-danger">cancel</button>
+    
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+    
+    
+    
+
+
+
+
+
+
+
+
     </div>
 
     <div class="tab-pane fade" id="process" role="tabpanel" aria-labelledby="process-tab">
 
+
+
+        
+        <div class="container-fluid">
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                  <div class="col-md-2">
+                    <img src="" class="card-img" alt="">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h3 class="card-title">McDonalds</h3>
+                      <div class='row'>
+                          <div class="col-4">
+                            <p>Status:Processing</p>
+                          </div>
+                          <div class="col-4">
+                            <p>Order no:</p>
+                            
+                        </div>
+                        <div class="col-4">
+                            <p><i class="fa fa-clock-o" aria-hidden="true"></i>minutes ago</p>
+                            
+                        </div>
+                      </div>
+                      <p style="color:green">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      </p>
+                      <p style="color:red">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="card-body ml-auto">
+                        <button style="width:100px;margin-bottom: 10px;" type="button" class="btn btn-success">Shipped</button>
+                        <button style="width:100px;margin-bottom: 10px;"type="button" class="btn btn-warning">details</button>
+                        <button style="width:100px" type="button" class="btn btn-danger">cancel</button>
+    
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+    
+    
+
+
+
+
+
+
+
+    </div>
+    <div class="tab-pane fade" id="ongoing" role="tabpanel" aria-labelledby="ongoing-tab">
+
+
+
+        <div class="container-fluid">
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                  <div class="col-md-2">
+                    <img src="" class="card-img" alt="">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h3 class="card-title">McDonalds</h3>
+                      <div class='row'>
+                          <div class="col-4">
+                            <p>Status:Ongoing</p>
+                          </div>
+                          <div class="col-4">
+                            <p>Order no:</p>
+                            
+                        </div>
+                        <div class="col-4">
+                            <p><i class="fa fa-clock-o" aria-hidden="true"></i>minutes ago</p>
+                            
+                        </div>
+                      </div>
+                      <p style="color:green">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      </p>
+                      <p style="color:red">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="card-body ml-auto">
+                        <button style="width:100px;margin-bottom: 10px;" type="button" class="btn btn-success">done</button>
+                        <button style="width:100px;margin-bottom: 10px;"type="button" class="btn btn-warning">details</button>
+    
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+
+
     </div>
     <div class="tab-pane fade" id="Complete" role="tabpanel" aria-labelledby="Complete-tab">
 
+
+
+        <div class="container-fluid">
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                  <div class="col-md-2">
+                    <img src="" class="card-img" alt="">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h3 class="card-title">McDonalds</h3>
+                      <div class='row'>
+                          <div class="col-4">
+                            <p>Status:Completed</p>
+                          </div>
+                          <div class="col-4">
+                            <p>Order no:</p>
+                            
+                        </div>
+                        <div class="col-4">
+                            <p><i class="fa fa-clock-o" aria-hidden="true"></i>minutes ago</p>
+                            
+                        </div>
+                      </div>
+                      <p style="color:green">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      </p>
+                      <p style="color:red">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="card-body ml-auto">
+                        
+                        <button style="width:100px;margin-bottom: 10px;"type="button" class="btn btn-warning">details</button>
+    
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+
+
+
+
+
+
+
+
     </div>
     <div class="tab-pane fade" id="Cancelled" role="tabpanel" aria-labelledby="Cancelled-tab">
+
+
+        
+        <div class="container-fluid">
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                  <div class="col-md-2">
+                    <img src="" class="card-img" alt="">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h3 class="card-title">McDonalds</h3>
+                      <div class='row'>
+                          <div class="col-4">
+                            <p>Status:cancelled</p>
+                          </div>
+                          <div class="col-4">
+                            <p>Order no:</p>
+                            
+                        </div>
+                        <div class="col-4">
+                            <p><i class="fa fa-clock-o" aria-hidden="true"></i>minutes ago</p>
+                            
+                        </div>
+                      </div>
+                      <p style="color:green">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      </p>
+                      <p style="color:red">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="card-body ml-auto">
+                        
+                        <button style="width:100px;margin-bottom: 10px;"type="button" class="btn btn-warning">details</button>
+    
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+
+
+
+
 
     </div>
 
 
   </div>
+</div>

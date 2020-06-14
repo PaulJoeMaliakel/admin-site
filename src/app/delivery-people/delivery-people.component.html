@@ -1,0 +1,53 @@
+<div style="display: flex;
+justify-content: space-between; margin-bottom: 20px;">
+<h2>
+    Delivery People List
+</h2>
+
+
+<button routerLink="/edit-delivery-people" style="height: 40px;" type="button" class="btn btn-primary">Add delivery People</button>
+</div>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Contact Details</th>
+        <th scope="col">Vehicle Type</th>
+        <th scope="col">Address</th>
+        <th scope="col">status</th>
+        <th scope="col">Action</th>
+
+
+
+       
+        
+
+      </tr>
+    </thead>
+    <tbody>
+         
+      <tr *ngFor="let data of deliveryPeople; let i =index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{data.name}}</td>
+        <td>{{data.email}}</td>
+        
+        <td>{{data.contact}}</td>
+        <td>{{data.vehicleType}}</td>
+
+        <td>{{data.address}}</td>
+         <td>{{data.status}}</td>
+
+
+        <td >
+
+            <button (click)="editdata(data.id)" style="margin-right: 10px;" type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
+            <button (click)="deletedata(i, data.id)" type="button" class="btn btn-primary"><i class="fa fa-trash"></i></button>
+    
+          </td>
+
+      </tr>  
+     
+    </tbody>
+  </table>

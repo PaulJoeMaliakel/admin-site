@@ -1,0 +1,48 @@
+<div style="display: flex;
+justify-content: space-between; margin-bottom: 20px;">
+<h2>
+    Restaurant List
+</h2>
+
+
+<button routerLink="/addRestaurant" style="height: 40px;" type="button" class="btn btn-primary">Add Restaurant</button>
+</div>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Image</th>
+        <th scope="col">Address</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Contact</th>
+        
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><i type="button" data-toggle="collapse" data-target="#collapseme" class="fa fa-plus-circle" aria-hidden="true"></i>1</th>
+        <td>McDonalds</td>
+        <td>del@mcdonald.com</td>
+        <td></td>
+        <td><P></P></td>
+        <td> 8</td>
+        <td>8877889900</td>
+
+
+      </tr>
+      <tr><td  colspan="7" id="collapseme" class="collapse out">
+
+        <button routerLink="menu" style="margin-right: 10px;"  type="button" class="btn btn-primary">Menu</button>
+        <button style="margin-right: 10px;" type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
+        <button type="button" class="btn btn-primary"><i class="fa fa-trash"></i></button>
+
+      </td></tr>
+    
+      
+    </tbody>
+  </table>
+  
+<!-- <router-outlet></router-outlet> -->

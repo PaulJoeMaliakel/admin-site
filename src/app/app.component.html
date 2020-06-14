@@ -15,10 +15,10 @@
         </li>
 
           <li class="active">
-              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Restaurant List</a>
-              <ul class="collapse list-unstyled" id="homeSubmenu">
+              <a href="#resSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Restaurant List</a>
+              <ul class="collapse list-unstyled" id="resSubmenu">
                   <li>
-                      <a href="#">All Restaurant</a>
+                      <a routerLink="/restaurants">All Restaurant</a>
                   </li>
                  
               </ul>
@@ -27,7 +27,7 @@
               <a href="#delSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Delivery People</a>
               <ul class="collapse list-unstyled" id="delSubmenu">
                   <li>
-                      <a href="#">All Delivery People</a>
+                      <a routerLink="/delivery-people">All Delivery People</a>
                   </li>
                   
               </ul>
@@ -36,27 +36,7 @@
             <a href="#">User</a>
           </li>
           <li>
-            <a href="#ordSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Order Delivery List</a>
-            <ul class="collapse list-unstyled" id="ordSubmenu">
-                <li>
-                    <a href="#">Pending Deliveries</a>
-                </li>
-                <li>
-                    <a href="#">Approved Deliveries</a>
-                </li>
-                <li>
-                    <a href="#">Process Deliveries</a>
-                </li>
-                <li>
-                  <a href="#">Ongoing Deliveries</a>
-                </li>
-                <li>
-                  <a href="#">Completed Deliveries</a>
-                </li>
-                <li>
-                  <a href="#">Cancelled Deliveries</a>
-                </li>
-            </ul>
+            <a routerLink="/orders-deliveries-list">Order Delivery List</a>
           </li>
           <li>
             <a href="#revSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reviews</a>
