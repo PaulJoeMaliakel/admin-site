@@ -76,7 +76,7 @@ import { UsersModule } from './users/users.module';
     // GooglePlaceModule,
     // MarkerManager,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCiDG4KVt6yiiLtYKSTZw1sUd789xp3ceE',
+      apiKey: '',
       libraries: ['places']
     }),
   ],
