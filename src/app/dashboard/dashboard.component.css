@@ -1,0 +1,36 @@
+.card-header {
+    background-color: #232041;
+    color: white;
+    height: 50px;
+ }
+#received {
+    height: 100px;
+    margin-bottom: 5px;
+    background-color: #0b8abd;
+    color:white;
+    align-items: center;
+    position:relative;
+
+}
+#processing {
+    height: 100px;
+    margin-bottom: 5px;
+    background-color:  #d1d110;
+    color:white;
+    align-items: center;
+    position:relative;
+}
+#delivered {
+    height: 100px;
+    background-color: #0e7a0e;
+    color: white;
+    align-items: center;
+    position:relative;
+}
+#cancelled {
+    height: 100px;
+    background-color: #e33232;
+    color: white;
+    align-items: center;
+    position:relative;
+}

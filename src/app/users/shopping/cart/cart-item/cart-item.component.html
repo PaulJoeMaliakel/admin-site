@@ -1,0 +1,7 @@
+<div class="cart-item" style="display:flex;justify-content: space-between ;">
+    <div class="list">
+    <span>{{cItem.productName}}</span> x <span>{{cItem.count}}</span>: <strong>{{ (cItem.count * cItem.price) | currency: 'INR'}}</strong>
+
+    </div>
+    <button (click)="itemRemove(cItem.productId)" type="button" class="btn btn-primary btn-sm">-</button>
+</div>

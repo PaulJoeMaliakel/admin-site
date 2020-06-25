@@ -25,7 +25,17 @@ import { OrderDetailsComponent } from './order-deliveries-list/order-details/ord
 import { DeliveryPeopleDetailsComponent } from './delivery-people/delivery-people-details/delivery-people-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
+import { EditRestaurantComponent } from './restaurants/edit-restaurant/edit-restaurant.component';
+import { AddItemComponent } from './restaurants/add-item/add-item.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { AddCategoryComponent } from './categories/add-category/add-category.component';
+import { EditCategoryComponent } from './categories/edit-category/edit-category.component';
+import { EditItemComponent } from './restaurants/edit-item/edit-item.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UsersModule } from './users/users.module';
+// import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+// import { MarkerManager } from '@agm/core';
+// import {GoogleMapsAPIWrapper} from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -41,7 +51,14 @@ import { FormsModule } from '@angular/forms';
     AddUsersComponent,
     OrderDeliveriesListComponent,
     OrderDetailsComponent,
-    DeliveryPeopleDetailsComponent
+    DeliveryPeopleDetailsComponent,
+    EditRestaurantComponent,
+    AddItemComponent,
+    CategoriesComponent,
+    AddCategoryComponent,
+    EditCategoryComponent,
+    EditItemComponent,
+    DashboardComponent
   ],
   imports: [
     HttpClientModule,
@@ -55,8 +72,12 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     NgxMaterialTimepickerModule,
     FormsModule,
+    UsersModule,
+    // GooglePlaceModule,
+    // MarkerManager,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCg3NZSAQi2Xs38kUDuFZ7lZoRxZ7tY3GA'
+      apiKey: 'AIzaSyCiDG4KVt6yiiLtYKSTZw1sUd789xp3ceE',
+      libraries: ['places']
     }),
   ],
   providers: [],

@@ -1,0 +1,61 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-9">
+      <app-shop-list></app-shop-list>
+       
+    </div>
+    <div class="col-3">
+      <app-cart></app-cart>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li *ngFor="let data of categoryList" class="nav-item">
+          <a class="nav-link " id="{{data}}-tab" data-toggle="tab" href="#{{data}}" role="tab"   aria-selected="true">{{data}}</a>
+        </li>
+      </ul>
+
+      <div class="tab-content " id="myTabContent">
+    
+        <div *ngFor="let data of categoryList" class="tab-pane fade" id="{{data}}" role="tabpanel"  >
+
+          
+            <div *ngFor="let res of restaurants" class="card">
+              <ng-container *ngIf="res.category.includes(data)"> 
+                <div class="card-header">
+                  {{res.name}}
+                </div>
+                <div class="card-body">
+                  <app-product-list []></app-product-list>
+                </div>
+              </ng-container>
+              </div>
+            
+        </div>
+
+
+      
+    </div>
+</div>
+
+
+    <div class="col-md-4" >
+      <app-cart style="position: fixed;"></app-cart>
+    </div>
+  </div>
+
+
+
+</div> -->
+
+    
+    
+ 

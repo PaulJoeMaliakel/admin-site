@@ -8,7 +8,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./edit-delivery-people.component.css']
 })
 export class EditDeliveryPeopleComponent implements OnInit {
-  delivery_man = {
+
+  delivery_man = { 
+
+
+
     name: '',
     email: '',
     contact: '',
@@ -19,7 +23,8 @@ export class EditDeliveryPeopleComponent implements OnInit {
 
 
 
-    published: false
+   published: false
+   
   };
   constructor(private DeliveryPeopleService: DeliveryPeopleService, private route: ActivatedRoute,
     private router: Router) { }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const baseUrl = 'http://localhost:3000/restaurants';
+const baseUrl = 'http://localhost:3000/delivery-man';
  
 @Injectable({
   providedIn: 'root'

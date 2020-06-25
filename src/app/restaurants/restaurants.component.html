@@ -1,7 +1,7 @@
 <div style="display: flex;
 justify-content: space-between; margin-bottom: 20px;">
 <h2>
-    Restaurant List
+    Shop List
 </h2>
 
 
@@ -17,31 +17,32 @@ justify-content: space-between; margin-bottom: 20px;">
         <th scope="col">Address</th>
         <th scope="col">Rating</th>
         <th scope="col">Contact</th>
+        <th scope="col">Action</th>
+
         
 
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row"><i type="button" data-toggle="collapse" data-target="#collapseme" class="fa fa-plus-circle" aria-hidden="true"></i>1</th>
-        <td>McDonalds</td>
-        <td>del@mcdonald.com</td>
+        
+      <tr *ngFor="let data of restaurants; let i =index">
+        <td scope="row">{{i+1}}</td>
+        <td>{{data.name}}</td>
+        <td>{{data.email}}</td>
         <td></td>
-        <td><P></P></td>
+        <td>{{data.address}}</td>
         <td> 8</td>
-        <td>8877889900</td>
+        <td>{{data.contact}}</td>
+        <td>
+            <button (click)="addmenu(data.id)" routerLink="menu" style="margin-right: 10px;"  type="button" class="btn btn-primary">Menu</button>
+        <button (click)="editdata(data.id)"  style="margin-right: 10px;" type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
+        <button (click)="deletedata(i, data.id)" type="button" class="btn btn-primary"><i class="fa fa-trash"></i></button>
+
+        </td>
+
 
 
       </tr>
-      <tr><td  colspan="7" id="collapseme" class="collapse out">
-
-        <button routerLink="menu" style="margin-right: 10px;"  type="button" class="btn btn-primary">Menu</button>
-        <button style="margin-right: 10px;" type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
-        <button type="button" class="btn btn-primary"><i class="fa fa-trash"></i></button>
-
-      </td></tr>
-    
-      
     </tbody>
   </table>
   

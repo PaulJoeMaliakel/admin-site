@@ -9,24 +9,46 @@ import { EditDeliveryPeopleComponent } from './delivery-people/edit-delivery-peo
 import { OrderDeliveriesListComponent } from './order-deliveries-list/order-deliveries-list.component';
 import { OrderDetailsComponent } from './order-deliveries-list/order-details/order-details.component';
 import { DeliveryPeopleDetailsComponent } from './delivery-people/delivery-people-details/delivery-people-details.component';
+import { EditRestaurantComponent } from './restaurants/edit-restaurant/edit-restaurant.component';
+import { AddItemComponent } from './restaurants/add-item/add-item.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { AddCategoryComponent } from './categories/add-category/add-category.component';
+import { EditCategoryComponent } from './categories/edit-category/edit-category.component';
+import { EditItemComponent } from './restaurants/edit-item/edit-item.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UsersModule } from './users/users.module';
 
 
 const routes: Routes = [
+  {path: 'dashboard', component: DashboardComponent},
+
   {path: 'dispatcher', component: DispatcherComponent},
   {path: 'restaurants', component: RestaurantsComponent},
+  {path: 'categories', component: CategoriesComponent},
+  {path: 'add-category', component: AddCategoryComponent},
+  {path: 'edit-category/:id', component: EditCategoryComponent},
 
-  {path: 'restaurants/:restaurantId', component: RestaurantsComponent, children: [
-    {path: 'menu', component: MenuComponent }]},
+
+
+  {path: 'restaurants', component: RestaurantsComponent}, 
+  {path: 'menu/:id', component: MenuComponent},
+  {path: 'add-item/:id', component: AddItemComponent},
+  {path: 'edit-item/:id', component: EditItemComponent},
+
+
+
+  {path: 'edit-restaurant/:id', component: EditRestaurantComponent},
 
   
   {path: 'addRestaurant', component: AddrestaurantComponent},
+
   {path: 'delivery-people', component: DeliveryPeopleComponent},
   {path: 'delivery-people-details/:id', component: DeliveryPeopleDetailsComponent},
 
   {path: 'edit-delivery-people', component: EditDeliveryPeopleComponent},
   {path: 'orders-deliveries-list', component: OrderDeliveriesListComponent},
   {path: 'order-details', component: OrderDetailsComponent},
-
+  {path : 'users', loadChildren : './users/users.module#UsersModule'},
 
 
 

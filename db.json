@@ -9,21 +9,154 @@
       "status": "active",
       "address": "dfgdfgdfgsdgdsdg",
       "id": 1
+    }
+  ],
+  "restaurants": [
+    {
+      "name": "dfgdfg",
+      "email": "sdgfgdfg@dfgdfg",
+      "contact": 45435345345,
+      "category": [
+        "hello"
+      ],
+      "contactName": "fdgsdfg",
+      "openingTime": "12:00",
+      "closingTime": "06:00",
+      "orderMin": 45,
+      "packagingCharge": 45,
+      "offerminCharge": 29,
+      "offerPercent": 43,
+      "status": "1",
+      "address": "dfgdgsdfgssdgsdg",
+      "id": 1
     },
     {
-      "name": "",
-      "email": "",
-      "contact": "",
+      "name": "sri krishna",
+      "email": "sri@gmail.com",
+      "contact": 998899889,
+      "category": [
+        "dairy"
+      ],
       "contactName": "",
-      "openingTime": "",
-      "closingTime": "",
+      "openingTime": "09:00",
+      "closingTime": "06:00",
       "orderMin": "",
       "packagingCharge": "",
       "offerminCharge": "",
       "offerPercent": "",
-      "status": "",
+      "status": "1",
       "address": "",
       "id": 2
+    }
+  ],
+  "categories": [
+    {
+      "name": "dairy",
+      "subcategory": [
+        "curd",
+        "milk",
+        "yogurt"
+      ],
+      "id": 5
+    },
+    {
+      "name": "hello",
+      "subcategory": [
+        "hi",
+        "hiii",
+        "good",
+        "moring"
+      ],
+      "id": 7
+    }
+  ],
+  "items": [
+    {
+      "itemName": "dfsgdgdfgdfg",
+      "cost": 45,
+      "quantity": 454,
+      "category": [
+        "dairy"
+      ],
+      "subcategory": [
+        "hiii"
+      ],
+      "status": "available",
+      "discount": 30,
+      "restaurantId": "1",
+      "id": 1
+    },
+    {
+      "itemName": "apple",
+      "cost": 100,
+      "quantity": 500,
+      "category": [
+        "hello"
+      ],
+      "subcategory": "",
+      "status": "available",
+      "discount": "",
+      "restaurantId": "1",
+      "id": 2
+    },
+    {
+      "itemName": "cake",
+      "cost": 500,
+      "quantity": 500,
+      "category": [
+        "dairy"
+      ],
+      "subcategory": [
+        "curd",
+        "milk",
+        "yogurt"
+      ],
+      "status": "available",
+      "discount": "",
+      "restaurantId": "2",
+      "id": 3
+    },
+    {
+      "itemName": "ice cream",
+      "cost": 50,
+      "quantity": 100,
+      "category": [
+        "dairy"
+      ],
+      "subcategory": [
+        "milk"
+      ],
+      "status": "available",
+      "discount": "",
+      "restaurantId": "2",
+      "id": 4
+    }
+  ],
+  "users": [
+    {
+      "name": "asdfasdfsdfsdfsdf11",
+      "email": "sfsfsdfsdf",
+      "contact": "4343343434",
+      "status": "active",
+      "address": "dfgdfgdfgsdgdsdg",
+      "id": 1
+    },
+    {
+      "name": "paul",
+      "email": "paul@gmail",
+      "contact": "276262",
+      "status": "active",
+      "address": "alakode",
+      "id": 2
+    }
+  ],
+  "cart": [
+    {
+      "productId": 2,
+      "productName": "apple",
+      "count": 1,
+      "price": 100,
+      "id": 1
     }
   ]
 }

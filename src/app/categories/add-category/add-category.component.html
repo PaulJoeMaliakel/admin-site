@@ -1,0 +1,25 @@
+<div class='container-fluid'>
+    <div class="row">
+        <div class ="col-4">
+            <label>Category Name*</label>
+            <input required
+            [(ngModel)]="category.name" type="text" class="form-control" id="name" >
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class ="col-4">
+                <label>SubCatogories</label>
+                <input required
+                [(ngModel)]="category.subcategory" type="text" class="form-control" id="subcategory"  >
+        </div>
+    </div>
+    <hr />
+    <button (click)="saveData()" class="btn btn-success">save</button>
+
+
+  
+ 
+
+    
+

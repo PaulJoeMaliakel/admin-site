@@ -8,23 +8,26 @@
       <ul class="list-unstyled components">
           <p>Super Admin</p>
           <li>
-            <a href="#">Dashboard</a>
+            <a routerLink="/dashboard"><i class="fa fa-tachometer mr-1" aria-hidden="true"></i>Dashboard</a>
         </li>
           <li>
-            <a routerLink="/dispatcher">Dispatcher</a>
+            <a routerLink="/dispatcher"><i class="fa fa-eye mr-1" aria-hidden="true"></i>
+                Dispatcher</a>
         </li>
 
           <li class="active">
-              <a href="#resSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Restaurant List</a>
+              <a href="#resSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-shopping-bag mr-1" aria-hidden="true"></i>
+                Shop List</a>
               <ul class="collapse list-unstyled" id="resSubmenu">
                   <li>
-                      <a routerLink="/restaurants">All Restaurant</a>
+                      <a routerLink="/restaurants">All shops</a>
                   </li>
                  
               </ul>
           </li>
           <li>
-              <a href="#delSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Delivery People</a>
+              <a href="#delSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-truck mr-1" aria-hidden="true"></i>
+                Delivery People</a>
               <ul class="collapse list-unstyled" id="delSubmenu">
                   <li>
                       <a routerLink="/delivery-people">All Delivery People</a>
@@ -33,13 +36,16 @@
               </ul>
           </li>
           <li>
-            <a href="#">User</a>
+            <a routerLink="/users"><i class="fa fa-user mr-1" aria-hidden="true"></i>
+                User</a>
           </li>
           <li>
-            <a routerLink="/orders-deliveries-list">Order Delivery List</a>
+            <a routerLink="/orders-deliveries-list"><i class="fa fa-list mr-1" aria-hidden="true"></i>
+                Order Delivery List</a>
           </li>
           <li>
-            <a href="#revSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reviews</a>
+            <a href="#revSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-comments mr-1" aria-hidden="true"></i>
+                Reviews</a>
             <ul class="collapse list-unstyled" id="revSubmenu">
                 <li>
                     <a href="#">Restaurant Reviews</a>
@@ -51,7 +57,8 @@
             </ul>
           </li>
           <li>
-            <a href="#repSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Earnings Report</a>
+            <a href="#repSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-money mr-1" aria-hidden="true"></i>
+                Earnings Report</a>
             <ul class="collapse list-unstyled" id="repSubmenu">
                 <li>
                     <a href="#">Admin Reports</a>
@@ -66,8 +73,13 @@
             </ul>
           </li>
           <li>
-              <a href="#">Promocode</a>
+              <a href="#"><i class="fa fa-gift mr-1" aria-hidden="true"></i>
+                Promocode</a>
           </li>
+          <li>
+            <a routerLink="/categories"><i class="fa fa-book mr-1" aria-hidden="true"></i>
+                Categories</a>
+        </li>
          
       </ul>
 
