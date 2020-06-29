@@ -1,9 +1,10 @@
 <ul class="list-group">
-    <li class="list-group-item" *ngFor="let i of cartItem">
+    <li class="list-group-item" *ngFor="let i of cartItem ">
         <app-cart-item [cItem]='i'></app-cart-item>
     </li>
 
     <li class="list-group-item active">
         <strong>Total: {{ cartTotal | currency: "INR" }}</strong>
     </li>
+    <button *ngIf="cartTotal>0" style="margin-top: 2px" routerLink=" " class="btn btn-warning"><strong>check out</strong></button>
 </ul>

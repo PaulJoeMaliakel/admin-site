@@ -7,6 +7,8 @@ justify-content: space-between; margin-bottom: 20px;">
 
 <button routerLink="/add-user" style="height: 40px;" type="button" class="btn btn-primary">Add User</button>
 </div>
+<input type="text" (keyup)='search($event.target.value)'>
+
 <table class="table table-bordered">
     <thead>
       <tr>

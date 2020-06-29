@@ -1,16 +1,5 @@
 {
-  "delivery-man": [
-    {
-      "name": "asdfasdfsdfsdfsdf11",
-      "email": "sfsfsdfsdf",
-      "contact": 4343343434,
-      "vehicleType": "erfgertert",
-      "gender": "male",
-      "status": "active",
-      "address": "dfgdfgdfgsdgdsdg",
-      "id": 1
-    }
-  ],
+  "delivery-man": [],
   "restaurants": [
     {
       "name": "dfgdfg",
@@ -130,6 +119,36 @@
       "discount": "",
       "restaurantId": "2",
       "id": 4
+    },
+    {
+      "itemName": "chicken",
+      "cost": 100,
+      "quantity": 1000,
+      "category": [
+        "hello"
+      ],
+      "subcategory": [
+        "good"
+      ],
+      "status": "available",
+      "discount": "",
+      "restaurantId": "1",
+      "id": 5
+    },
+    {
+      "itemName": "safsad",
+      "cost": 123,
+      "quantity": 122,
+      "category": [
+        "hello"
+      ],
+      "subcategory": [
+        "milk"
+      ],
+      "status": "available",
+      "discount": 10,
+      "restaurantId": "2",
+      "id": 6
     }
   ],
   "users": [
@@ -152,11 +171,60 @@
   ],
   "cart": [
     {
+      "id": "6c2d292b-cf63-4eb8-a9ee-d060f62edd42",
+      "productId": 1,
+      "productName": "dfsgdgdfgdfg",
+      "count": 1,
+      "price": 45,
+      "userId": "2"
+    },
+    {
+      "id": "94c8aab9-4e5a-490c-8242-3f3d58a2d83f",
       "productId": 2,
       "productName": "apple",
-      "count": 1,
+      "count": 2,
       "price": 100,
+      "userId": "1",
+      "shopId": "1"
+    },
+    {
+      "id": "fe976a21-dbdd-4f06-b678-2a43be393234",
+      "productId": 1,
+      "productName": "dfsgdgdfgdfg",
+      "count": 3,
+      "price": 45,
+      "userId": "1",
+      "shopId": "1"
+    },
+    {
+      "id": "96f7402c-221d-4cf8-9658-94339a93cace",
+      "productId": 4,
+      "productName": "ice cream",
+      "count": 3,
+      "price": 50,
+      "userId": "1",
+      "shopId": "2"
+    },
+    {
+      "id": "ed75cdb1-8075-43a7-ae98-e463430423e0",
+      "productId": 3,
+      "productName": "cake",
+      "count": 1,
+      "price": 500,
+      "userId": "1",
+      "shopId": "2"
+    }
+  ],
+  "wallet": [
+    {
+      "userId": "1",
+      "amount": 18,
       "id": 1
+    },
+    {
+      "userId": "1",
+      "amount": 17,
+      "id": 2
     }
   ]
 }

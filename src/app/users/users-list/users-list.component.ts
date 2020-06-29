@@ -10,6 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UsersListComponent implements OnInit {
 
   user;
+  filterData: any;
+  data;
 
   constructor(private UserService: UserService, private route: ActivatedRoute,
     private router: Router) { }
@@ -19,6 +21,7 @@ export class UsersListComponent implements OnInit {
     .subscribe(
       data => {
         this.user = data;
+        this.data= data;
         console.log(data);
       },
       error => {
@@ -45,7 +48,21 @@ export class UsersListComponent implements OnInit {
   // }
   details(id){
     this.router.navigate(['/user-details/'+ id]);
-  
+     localStorage.setItem("UserId", id);
+  }
+  search(term: string) {
+    if(!term) {
+      this.filterData = this.data;
+    } else {
+      this.filterData = this.data.filter(x =>  
+        x.contact.trim().toLowerCase().includes(term.trim().toLowerCase())
+        // x.email.trim().toLowerCase().includes(term.trim().toLowerCase())
+       
+        
+
+      );
+    }
+    this.user=this.filterData;
   }
 
 }

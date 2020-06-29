@@ -17,6 +17,10 @@ import { EditCategoryComponent } from './categories/edit-category/edit-category.
 import { EditItemComponent } from './restaurants/edit-item/edit-item.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersModule } from './users/users.module';
+import { ShoppingModule } from './shopping/shopping.module';
+
+import { AdminReportComponent } from './report/admin-report/admin-report.component';
+import { ShopReportComponent } from './report/shop-report/shop-report.component';
 
 
 const routes: Routes = [
@@ -34,13 +38,16 @@ const routes: Routes = [
   {path: 'menu/:id', component: MenuComponent},
   {path: 'add-item/:id', component: AddItemComponent},
   {path: 'edit-item/:id', component: EditItemComponent},
-
+  {path: 'admin-report', component: AdminReportComponent}, 
+  
 
 
   {path: 'edit-restaurant/:id', component: EditRestaurantComponent},
 
   
   {path: 'addRestaurant', component: AddrestaurantComponent},
+  {path: 'shop-report', component: ShopReportComponent},
+
 
   {path: 'delivery-people', component: DeliveryPeopleComponent},
   {path: 'delivery-people-details/:id', component: DeliveryPeopleDetailsComponent},
@@ -49,6 +56,8 @@ const routes: Routes = [
   {path: 'orders-deliveries-list', component: OrderDeliveriesListComponent},
   {path: 'order-details', component: OrderDetailsComponent},
   {path : 'users', loadChildren : './users/users.module#UsersModule'},
+  {path : 'shopping', loadChildren : './shopping/shopping.module#ShoppingModule'},
+
 
 
 

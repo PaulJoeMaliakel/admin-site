@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const baseUrl = 'http://localhost:3000/cart';
+const baseUrl = 'http://localhost:3000/wallet';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
+export class WalletService {
   constructor(private http: HttpClient) { }
   create(data) {
     return this.http.post(baseUrl, data);
   }
-  getAll(id) {
-    return this.http.get(`${baseUrl}?userId=${id}`);
+  getAll() {
+    return this.http.get(baseUrl);
   }
 
   get(id) {

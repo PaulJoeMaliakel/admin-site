@@ -10,6 +10,7 @@ export class Cart {
     price: number;
     shopId: number;
     userId: number;
+    shopName: string;
 
     constructor(id: number, product: Product, count=1){
         this.id = id;

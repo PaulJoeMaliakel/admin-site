@@ -63,6 +63,11 @@ a:focus {
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
+    position: fixed;
+    width: 150px;
+    /* overflow-y: scroll; */
+    top: 0;
+    bottom: 0;
 }
 
 #sidebar.active {

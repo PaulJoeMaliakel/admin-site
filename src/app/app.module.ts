@@ -33,9 +33,18 @@ import { EditCategoryComponent } from './categories/edit-category/edit-category.
 import { EditItemComponent } from './restaurants/edit-item/edit-item.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersModule } from './users/users.module';
+import { AdminReportComponent } from './report/admin-report/admin-report.component';
+import { ShopReportComponent } from './report/shop-report/shop-report.component';
+import { ShopReportDetailComponent } from './report/shop-report/shop-report-detail/shop-report-detail.component';
 // import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 // import { MarkerManager } from '@agm/core';
 // import {GoogleMapsAPIWrapper} from '@agm/core';
+// import {DatepickerModule} from 'ngx-date-picker';
+// import { NgxDaterangepickerMd } from 'ngx-datepicker-material';
+// import {MatDatepickerModule} from '@angular/material/datepicker';
+// import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+// import { MatFormFieldModule, MatInputModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -58,9 +67,16 @@ import { UsersModule } from './users/users.module';
     AddCategoryComponent,
     EditCategoryComponent,
     EditItemComponent,
-    DashboardComponent
+    DashboardComponent,
+    AdminReportComponent,
+    ShopReportComponent,
+    ShopReportDetailComponent
   ],
   imports: [
+    // MatInputModule,
+    // MatFormFieldModule,
+    // MatNativeDateModule,
+    // MatRippleModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
@@ -73,10 +89,14 @@ import { UsersModule } from './users/users.module';
     NgxMaterialTimepickerModule,
     FormsModule,
     UsersModule,
+    // MatDatepickerModule,
+    //  NgxDaterangepickerMd,
+    
+    // DatepickerModule,
     // GooglePlaceModule,
     // MarkerManager,
     AgmCoreModule.forRoot({
-      apiKey: '',
+      apiKey: 'AIzaSyCiDG4KVt6yiiLtYKSTZw1sUd789xp3ceE',
       libraries: ['places']
     }),
   ],

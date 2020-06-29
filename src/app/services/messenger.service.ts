@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class MessengerService {
+export class MessengerService  {
 
   subject= new Subject();
   sub2= new Subject();
@@ -27,4 +27,5 @@ export class MessengerService {
   getId(){
     return this.sub2.asObservable();
   }
+ 
 }
