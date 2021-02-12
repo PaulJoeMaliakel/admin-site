@@ -1,42 +1,49 @@
-<div style="display: flex;
-justify-content: space-between; margin-bottom: 20px;">
-<h2>
-    Menu List
-</h2>
+<div style="display: flex; justify-content: space-between; margin-bottom: 20px">
+  <h2>Menu List</h2>
 
-
-<button (click)="additem()" style="height: 40px;" type="button" class="btn btn-primary">Add item</button>
+  <button
+    (click)="additem()"
+    style="height: 40px"
+    type="button"
+    class="btn btn-primary"
+  >
+    Add item
+  </button>
 </div>
 <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th scope="col">No</th>
-        <th scope="col">Item name</th>
-        <th scope="col">Category</th>
-        <th scope="col">SubCategory</th>
-        <th scope="col">Status</th>
-        <th scope="col">Action</th>
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Item name</th>
+      <th scope="col">SubCategory</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of menu; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ data.title }}</td>
 
-       
-        
-
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let data of menu; let i =index">
-        <th scope="row">{{i+1}}</th>
-        <td>{{data.itemName}}</td>
-        <td>{{data.category[0]}}</td>
-        
-        <td>{{data.subcategory[0]}}</td>
-        <td>{{data.status}}</td>
-        <td >
-
-            <button (click)="editdata(data.id)" style="margin-right: 10px;" type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
-            <button type="button" class="btn btn-primary"><i class="fa fa-trash"></i></button>
-    
-          </td>
-
-      </tr>  
-    </tbody>
-  </table>
+      <td>{{ data.Subcategory }}</td>
+      <td>{{ data.status }}</td>
+      <td>
+        <button
+          (click)="editdata(data.id)"
+          style="margin-right: 10px"
+          type="button"
+          class="btn btn-primary"
+        >
+          <i class="fa fa-edit"></i>
+        </button>
+        <button
+          (click)="deletedata(data.id, i)"
+          type="button"
+          class="btn btn-primary"
+        >
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

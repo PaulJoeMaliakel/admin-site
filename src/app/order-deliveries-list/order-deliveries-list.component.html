@@ -1,37 +1,125 @@
-<div class="card">
-    <div class="card-body">
-      <h2>Order Deliveries List</h2>
-      <hr/>
+<!-- <div class="card">
+  <div class="card-body">
+    <h2>Order Deliveries List</h2>
+    <hr />
 
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">Customer Name</th>
-            <th scope="col">shop</th>
-            <th scope="col">Cost</th>
-            <th scope="col">status</th>
-      
-            
-    
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>McDonalds</td>
-            <td>del@mcdonald.com</td>
-           
-            <td>Rs.100</td>
-            <td>
-                <span class="badge badge-primary">Processing</span>
-                <br/>
-                <a routerLink="/order-details">View Details</a>
-            </td>
-          </tr>
-        
-          
-        </tbody>
-      </table>
-    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Order id</th>
+          <th scope="col">contact no.</th>
+          <th scope="col">Total</th>
+          <th scope="col">delivery boy</th>
+
+          <th scope="col">status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of restaurants; let i = index">
+          <th scope="row">1</th>
+          <td>McDonalds</td>
+          <td>del@mcdonald.com</td>
+
+          <td>Rs.100</td>
+          <td>
+            <span class="badge badge-primary">Processing</span>
+            <br />
+            <a routerLink="/order-details">View Details</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div> -->
+
+<div class="card">
+  <div class="card-body">
+    <h2>Order Deliveries List</h2>
+    <hr />
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Order id</th>
+          <th scope="col">contact no.</th>
+          <th scope="col">Total</th>
+          <th scope="col">delivery boy</th>
+
+          <th scope="col">status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of orders; let i = index">
+          <td scope="row">{{ i + 1 }}</td>
+          <td>{{ data.id }}</td>
+          <td>{{ data.phone }}</td>
+          <td>
+            {{ data.total }}
+          </td>
+          <td>{{ data.deliveryBoy }}</td>
+          <td>
+            <span
+              *ngIf="data.status == 'pending'"
+              class="badge badge-primary"
+              >{{ data.status }}</span
+            >
+            <span
+              *ngIf="data.status == 'approved'"
+              class="badge badge-secondary"
+              >{{ data.status }}</span
+            >
+            <span
+              *ngIf="data.status == 'processing'"
+              class="badge badge-warning"
+              >{{ data.status }}</span
+            >
+            <span *ngIf="data.status == 'ongoing'" class="badge badge-info">{{
+              data.status
+            }}</span>
+            <span
+              *ngIf="data.status == 'completed'"
+              class="badge badge-success"
+              >{{ data.status }}</span
+            >
+            <span
+              *ngIf="data.status == 'cancelled'"
+              class="badge badge-danger"
+              >{{ data.status }}</span
+            >
+
+            <br />
+            <a (click)="orderDetails(data.id)">View Details</a>
+          </td>
+          <!-- <td> -->
+          <!-- <button
+          (click)="addmenu(data.unique_id)"
+          routerLink="menu"
+          style="margin-right: 10px"
+          type="button"
+          class="btn btn-primary"
+        >
+          Menu
+        </button>
+        <button
+          (click)="editdata(data.unique_id)"
+          style="margin-right: 10px"
+          type="button"
+          class="btn btn-primary"
+        >
+          <i class="fa fa-edit"></i>
+        </button>
+        <button
+          (click)="deletedata(i, data.unique_id)"
+          type="button"
+          class="btn btn-primary"
+        >
+          <i class="fa fa-trash"></i>
+        </button> -->
+          <!-- </td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

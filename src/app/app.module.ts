@@ -6,14 +6,14 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { DispatcherComponent } from './dispatcher/dispatcher.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { AddrestaurantComponent } from './restaurants/addrestaurant/addrestaurant.component';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { AgmCoreModule } from '@agm/core';
 import { MenuComponent } from './restaurants/menu/menu.component';
 import { DeliveryPeopleComponent } from './delivery-people/delivery-people.component';
@@ -36,6 +36,11 @@ import { UsersModule } from './users/users.module';
 import { AdminReportComponent } from './report/admin-report/admin-report.component';
 import { ShopReportComponent } from './report/shop-report/shop-report.component';
 import { ShopReportDetailComponent } from './report/shop-report/shop-report-detail/shop-report-detail.component';
+import { ShoppingModule } from './shopping/shopping.module';
+import { LoginComponent } from './login/login.component';
+// import { CartComponent } from './shared/cart/cart.component';
+// import { CartItemComponent } from './shared/cart/cart-item/cart-item.component';
+
 // import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 // import { MarkerManager } from '@agm/core';
 // import {GoogleMapsAPIWrapper} from '@agm/core';
@@ -44,7 +49,6 @@ import { ShopReportDetailComponent } from './report/shop-report/shop-report-deta
 // import {MatDatepickerModule} from '@angular/material/datepicker';
 // import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 // import { MatFormFieldModule, MatInputModule } from '@angular/material';
-
 
 @NgModule({
   declarations: [
@@ -56,7 +60,7 @@ import { ShopReportDetailComponent } from './report/shop-report/shop-report-deta
     MenuComponent,
     DeliveryPeopleComponent,
     EditDeliveryPeopleComponent,
-    UsersComponent,
+
     AddUsersComponent,
     OrderDeliveriesListComponent,
     OrderDetailsComponent,
@@ -70,7 +74,10 @@ import { ShopReportDetailComponent } from './report/shop-report/shop-report-deta
     DashboardComponent,
     AdminReportComponent,
     ShopReportComponent,
-    ShopReportDetailComponent
+    ShopReportDetailComponent,
+    LoginComponent,
+    // CartComponent,
+    // CartItemComponent,
   ],
   imports: [
     // MatInputModule,
@@ -89,18 +96,21 @@ import { ShopReportDetailComponent } from './report/shop-report/shop-report-deta
     NgxMaterialTimepickerModule,
     FormsModule,
     UsersModule,
+    ShoppingModule,
+
     // MatDatepickerModule,
     //  NgxDaterangepickerMd,
-    
+
     // DatepickerModule,
     // GooglePlaceModule,
     // MarkerManager,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCiDG4KVt6yiiLtYKSTZw1sUd789xp3ceE',
-      libraries: ['places']
+      apiKey: '',
+      libraries: ['places'],
     }),
   ],
+  // exports: [CartComponent,CartItemComponent],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

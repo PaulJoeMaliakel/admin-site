@@ -1,3 +1,7 @@
 .cart-item {
     font-size: small ;
 }
+
+.subtract {
+    height: 30px;
+}

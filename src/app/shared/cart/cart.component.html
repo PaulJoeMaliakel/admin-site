@@ -1,0 +1,18 @@
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let i of cartItem">
+    <app-cart-item [cItem]="i"></app-cart-item>
+  </li>
+
+  <li class="list-group-item active">
+    <strong>Total: {{ cartTotal | currency: "INR" }}</strong>
+  </li>
+  <button
+    (click)="toCheckout()"
+    *ngIf="cartTotal > 0 && checkout"
+    style="margin-top: 2px"
+    [routerLink]="'/checkout'"
+    class="btn btn-warning"
+  >
+    <strong>check out</strong>
+  </button>
+</ul>

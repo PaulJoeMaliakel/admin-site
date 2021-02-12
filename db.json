@@ -191,7 +191,7 @@
       "id": "fe976a21-dbdd-4f06-b678-2a43be393234",
       "productId": 1,
       "productName": "dfsgdgdfgdfg",
-      "count": 3,
+      "count": 2,
       "price": 45,
       "userId": "1",
       "shopId": "1"
@@ -200,17 +200,8 @@
       "id": "96f7402c-221d-4cf8-9658-94339a93cace",
       "productId": 4,
       "productName": "ice cream",
-      "count": 3,
-      "price": 50,
-      "userId": "1",
-      "shopId": "2"
-    },
-    {
-      "id": "ed75cdb1-8075-43a7-ae98-e463430423e0",
-      "productId": 3,
-      "productName": "cake",
       "count": 1,
-      "price": 500,
+      "price": 50,
       "userId": "1",
       "shopId": "2"
     }

@@ -1,0 +1,93 @@
+<div class="row">
+  <div class="col-md-9">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4">
+            <div style="display: inline-flex">
+              <h3>Delivery Address</h3>
+              <!-- <a href="">change</a> -->
+            </div>
+            <select
+              [(ngModel)]="address"
+              class="custom-select"
+              id="inputGroupSelect01"
+              (ngModelChange)="mySelectHandler($event)"
+            >
+              <option selected>Choose...</option>
+              <option
+                (click)="addressSelect(i)"
+                *ngFor="let i of item"
+                [ngValue]="i"
+              >
+                {{ i.del_address }} {{ i.phone }}
+              </option>
+              <!-- <option value="not available">Not Available</option> -->
+            </select>
+          </div>
+
+          <div class="col-md-4" style="text-align: left">
+            <div style="display: inline-flex">
+              <h3>delivery charge</h3>
+            </div>
+            <input
+              required
+              [(ngModel)]="amount"
+              type="number"
+              class="form-control"
+              id="amount"
+              placeholder="amount"
+            />
+            <!-- <h1>{{ amount }}</h1> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="row">
+      <div class="col">
+        <!-- <app-cart></app-cart> -->
+        <div class="card">
+          <div class="card-body">
+            <h1>Total:</h1>
+            <h2>Rs: {{ cartTotal + amount }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h1 style="font-size: 17px; font-weight: 600">Address</h1>
+            <div *ngIf="address">{{ address.del_address }}</div>
+            <br />
+            <h1 style="font-size: 17px; font-weight: 600">Phone</h1>
+            <div *ngIf="address">{{ address.phone }}</div>
+            <br />
+
+            <h1 style="font-size: 17px; font-weight: 600">del charge</h1>
+            <div *ngIf="amount" style="font-size: 17px; font-weight: 300">
+              Rs:{{ amount }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+          (click)="placeorder()"
+          *ngIf="address"
+          style="margin-top: 2px; width: inherit"
+          class="btn btn-lg btn-warning"
+        >
+          <strong>Place order</strong>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,49 +5,48 @@ import { ItemService } from 'src/app/services/item.service';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent implements OnInit {
-
   id;
   menu;
 
-  constructor(private route: ActivatedRoute,
-    private router: Router, private ItemService: ItemService ) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private ItemService: ItemService
+  ) {}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.ItemService.getAll(this.id)
-    .subscribe(
-      data => {
+    this.ItemService.getAll(this.id).subscribe(
+      (data) => {
         this.menu = data;
         console.log(data);
       },
-      error => {
+      (error) => {
         console.log(error);
-      });
+      }
+    );
   }
-  additem(){
-    this.router.navigate(['/add-item/'+ this.id]);
-  }
-
-  deletedata(id,index) {
-    this.ItemService.delete(index)
-      .subscribe(
-        response => {
-          console.log(response);
-          // this.router.navigate(['/tutorials']);
-          this.menu.splice(id, 1);
-          console.log(id);
-  
-        },
-        error => {
-          console.log(error);
-        });
-  }
-  editdata(id){
-    this.router.navigate(['/edit-item/'+ id]);
-  
+  additem() {
+    this.router.navigate(['/add-item/' + this.id]);
   }
 
+  deletedata(id, index) {
+    this.ItemService.delete(id).subscribe(
+      (response) => {
+        console.log(response);
+        // this.router.navigate(['/tutorials']);
+        this.menu.splice(index, 1);
+        console.log(id);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  editdata(id) {
+    this.router.navigate(['/edit-item/' + id]);
+  }
 }

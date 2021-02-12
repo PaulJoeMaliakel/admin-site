@@ -1,69 +1,53 @@
-<div class='container-fluid'>
-    <div class="row">
-        <div class ="col-4">
-            <label for="name">Name*</label>
-            <input type="text" required
-            [(ngModel)]="deliveryPeople.name"
-            name="name" class="form-control" id="name" >
-        </div>
-        <div class ="col-4">
-                <label for="exampleInputEmail1">Email address*</label>
-                <input type="email" name="email" class="form-control" required [(ngModel)]="deliveryPeople.email" id="exampleInputEmail1" >
-        </div>
-        <div class ="col-4">
-            <label for="contactNumber1">contact Number*</label>
-            <input type="number" name="contact" class="form-control" required [(ngModel)]="deliveryPeople.contact" id="contactNumber1" >
-        </div>
-        
-
+<div *ngIf="deliveryPeople" class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <label for="name">Name*</label>
+      <input
+        type="text"
+        required
+        [(ngModel)]="deliveryPeople[0].name"
+        name="name"
+        class="form-control"
+        id="name"
+      />
     </div>
-    
-    <hr/>
 
-      <div class='row'>
-          <div class="col-6">
-            
-                <label for="contactName">Vehicle Type*</label>
-                <input type="text" name="vehicleType" class="form-control" required [(ngModel)]="deliveryPeople.vehicleType" id="contactName" >
-            
-          </div>
-          <div class="col-6">
-            <label for="gender">Gender*</label>
+    <div class="col-4">
+      <label for="contactNumber1">contact Number*</label>
+      <input
+        type="number"
+        name="contact"
+        class="form-control"
+        required
+        [(ngModel)]="deliveryPeople[0].contact"
+        id="contactNumber1"
+      />
+    </div>
+  </div>
 
-            <div class="radio">
-                <label><input type="radio" [(ngModel)]="deliveryPeople.gender" value="male" name="optradio1"  >Male</label>
-              </div>
-              <div class="radio">
-                <label><input type="radio" [(ngModel)]="deliveryPeople.gender" value="female" name="optradio2">Female</label>
-              </div>
-         
+  <hr />
+
+  <div class="row">
+    <div class="col-6">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01"
+            >Current Status</label
+          >
         </div>
+        <select
+          [(ngModel)]="deliveryPeople[0].status"
+          name="status"
+          class="custom-select"
+          id="inputGroupSelect01"
+        >
+          <option selected>Choose...</option>
+          <option value="available">available</option>
+          <option value="busy">busy</option>
+        </select>
       </div>
-  
-    <hr/>
-
-    <div class="row">
-        <div class="col-6">
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <label class="input-group-text" for="inputGroupSelect01">Current Status</label>
-                </div>
-                <select [(ngModel)]="deliveryPeople.status" name="status" class="custom-select" id="inputGroupSelect01">
-                  <option selected>Choose...</option>
-                  <option value="active">Active</option>
-                  <option value="off">Off</option>
-                   
-                </select>
-              </div> 
-
-              <label for="address">Address</label>
-              <input [(ngModel)]="deliveryPeople.address" name="address" type="text" class="form-control" id="address" >
-        </div>
-       
-
     </div>
+  </div>
 
-    <button (click)="updateData()" class="btn btn-success">Update</button>
-
-
+  <button (click)="updateData()" class="btn btn-success">Update</button>
 </div>

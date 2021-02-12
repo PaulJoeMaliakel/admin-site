@@ -1,33 +1,40 @@
-<div class='container-fluid'>
-    <div class="row">
-        <div class ="col-4">
-            <label>Item Name*</label>
-            <input required
-            [(ngModel)]="item.itemName" type="text" class="form-control" id="itemName" >
-        </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <label>Item Name*</label>
+      <input
+        required
+        [(ngModel)]="item.itemName"
+        type="text"
+        class="form-control"
+        id="itemName"
+      />
     </div>
-    <hr />
-    <div class="row">
+  </div>
+  <hr />
+  <!-- <div class="row">
         <div class ="col-4">
                 <label>Item cost</label>
                 <input required
                 [(ngModel)]="item.cost" type="number" class="form-control" id="cost" >
         </div>
     </div>
-    <hr />
+    <hr /> -->
 
-    <div class="row">
-
-        <div class ="col-4">
-            <label for="contactNumber1">Item Quantity(grams)*</label>
-            <input required
-            [(ngModel)]="item.quantity" type="number" class="form-control" id="quantity" >
-        </div>
-        
-
+  <div class="row">
+    <div class="col-4">
+      <label for="contactNumber1">desc</label>
+      <input
+        required
+        [(ngModel)]="item.desc"
+        type="text"
+        class="form-control"
+        id="desc"
+      />
     </div>
-    <hr />
-    <div class="row">
+  </div>
+  <hr />
+  <!-- <div class="row">
 
         <div class ="col-4">
             <label for="contactNumber1">Discount</label>
@@ -36,9 +43,8 @@
         </div>
         
 
-    </div>
-    <hr />
-    <div class="row" style="margin-top:10px">
+    </div> -->
+  <!-- <div class="row" style="margin-top:10px">
         <div class="col-md-12">
       
          
@@ -50,43 +56,117 @@
               </mat-form-field>
       
         </div>
-      </div>    
-      <hr />
-      <div class="row" style="margin-top:10px">
-          <div class="col-md-12">
-        
-           
-              <mat-form-field style="width:inherit">
-                  <mat-label>subcategory</mat-label>
-                  <mat-select  [(ngModel)]="item.subcategory"  [formControl]="subcategories" multiple>
-                    <mat-option *ngFor="let subcategories of subcategoryList" [value]="subcategories">{{subcategories}}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-        
-          </div>
-        </div>   
-     
- 
-    <div class="row">
-        <div class="col-6">
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <label class="input-group-text" for="inputGroupSelect01">Status</label>
-                </div>
-                <select [(ngModel)]="item.status" class="custom-select" id="inputGroupSelect01">
-                  <option selected>Choose...</option>
-                  <option value="available">Available</option>
-                  <option value="not available">Not Available</option>
-                   
-                </select>
-              </div> 
-
-
-
+      </div>     -->
+  <div class="row" style="margin-top: 10px">
+    <div class="col-md-12">
+      <mat-form-field style="width: inherit">
+        <mat-label>subcategory</mat-label>
+        <mat-select
+          [(ngModel)]="item.subcategory"
+          [formControl]="subcategories"
+          multiple
+        >
+          <mat-option
+            *ngFor="let subcategories of subcategoryList"
+            [value]="subcategories.id"
+            >{{ subcategories.title }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
     </div>
+  </div>
+
+  <!-- <div class="row">
+    <div class="col-6">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01"
+            >Status</label
+          >
+        </div>
+        <select
+          [(ngModel)]="item.status"
+          class="custom-select"
+          id="inputGroupSelect01"
+        >
+          <option selected>Choose...</option>
+          <option value="available">Available</option>
+          <option value="not available">Not Available</option>
+        </select>
+      </div>
     </div>
-    <button (click)="saveData()" class="btn btn-success">save</button>
-
-
+  </div> -->
+  <div class="form-group">
+    <label for="file">Choose File</label>
+    <input type="file" (change)="onFileChanged($event)" />
+    <div *ngIf="url">
+      <img height="100" width="100" src="{{ url }}" />
+    </div>
+  </div>
+  <hr />
+  <h1>Items</h1>
+  <div class="btn-div">
+    <button class="btn btn-success" (click)="onAddRow()">Add new row</button>
+  </div>
+  <div *ngFor="let a of orderitems" class="row">
+    <div class="col">
+      <input
+        required
+        [(ngModel)]="a.mrp"
+        number="text"
+        class="form-control"
+        id="mrp"
+        placeholder="mrp"
+      />
+    </div>
+    <div class="col">
+      <input
+        required
+        [(ngModel)]="a.wprice"
+        type="text"
+        class="form-control"
+        id="wprice"
+        placeholder="wprice"
+      />
+    </div>
+    <div class="col">
+      <input
+        required
+        [(ngModel)]="a.oprice"
+        type="text"
+        class="form-control"
+        id="oprice"
+        placeholder="oprice"
+      />
+    </div>
+    <div class="col">
+      <input
+        required
+        [(ngModel)]="a.amount"
+        type="text"
+        class="form-control"
+        id="amount"
+        placeholder="amount"
+      />
+    </div>
+    <div class="col">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01"
+            >Status</label
+          >
+        </div>
+        <select
+          [(ngModel)]="a.status"
+          class="custom-select"
+          id="inputGroupSelect01"
+        >
+          <option selected>Choose...</option>
+          <option value="available">Available</option>
+          <option value="not available">Not Available</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <button (click)="saveData()" class="btn btn-success">save</button>
 </div>
-

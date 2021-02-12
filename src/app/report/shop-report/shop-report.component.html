@@ -1,46 +1,50 @@
 <div class="row">
-    <div class="col-10">
-        <div class="card">
-            <div class="card-header" style="display:flex;justify-content: space-between;">
-                <div>
-                 <h3 class="font-weight-bold"><i class="fa fa-user mr-1" aria-hidden="true"></i>Admin Report</h3>
-
-                </div>
-               <!-- <ngx-datepicker [(ngModel)]="model"></ngx-datepicker> -->
-               <!-- <input type="text" ngxDaterangepickerMd [(ngModel)]="selected" class="form-control"/> -->
-               <div>
-               <input type="date" class="form-control">
-
-               </div>
-            </div>
-            <div class="card-body">
-                 
-                <table class="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th scope="col">No.</th>
-                        <th scope="col">Shop Name</th>
-                        <th scope="col">Earning amount</th>
-                        <th scope="col">Earnings Report</th>
-                         
-                
-                        
-                
-                      </tr>
-                    </thead>
-                    <tbody>
-                        
-                      <tr>
-                        <td scope="row"> 42342342323</td>
-                        <td> 12-02-2012 </td>
-                        <td></td>
-                        <td><a href=''>Details</a></td>
-                     
-                      </tr>
-                       
-                    </tbody>
-                  </table>
-            </div>
+  <div class="col-10">
+    <div class="card">
+      <div
+        class="card-header"
+        style="display: flex; justify-content: space-between"
+      >
+        <div>
+          <h3 class="font-weight-bold">
+            <i class="fa fa-user mr-1" aria-hidden="true"></i>Admin Report
+          </h3>
         </div>
+        <!-- <ngx-datepicker [(ngModel)]="model"></ngx-datepicker> -->
+        <!-- <input type="text" ngxDaterangepickerMd [(ngModel)]="selected" class="form-control"/> -->
+        <div style="display: flex">
+          <input [(ngModel)]="fromDate" type="date" class="form-control" />
+          <input [(ngModel)]="toDate" type="date" class="form-control" />
+          <button
+            (click)="getReport()"
+            style="height: 40px"
+            type="button"
+            class="btn btn-primary"
+          >
+            Process
+          </button>
+        </div>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">No.</th>
+              <th scope="col">Shop Name</th>
+              <th scope="col">Earnings amount</th>
+              <th scope="col">Earnings Report</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of earnings">
+              <td scope="row">{{ data.id }}</td>
+              <td>{{ data.shop_id }}</td>
+              <td>{{ data.itemTotal }}</td>
+              <td><a (click)="orderDetails(data.shop_id)">Details</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
 </div>

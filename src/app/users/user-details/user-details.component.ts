@@ -2,96 +2,109 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WalletService } from 'src/app/services/wallet.service';
+import { OrdersService } from 'src/app/services/orders.service';
 
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
-  styleUrls: ['./user-details.component.css']
+  styleUrls: ['./user-details.component.css'],
 })
 export class UserDetailsComponent implements OnInit {
-
   item;
   wallet;
   createWallet = false;
-  amount=0;
-  extra:number=0;
+  amount = 0;
+  extra: number = 0;
+  orders;
+  constructor(
+    private walletService: WalletService,
+    private userService: UserService,
+    private route: ActivatedRoute,
+    private router: Router,
 
-
-  constructor(private walletService: WalletService,private userService: UserService, private route: ActivatedRoute,
-    private router: Router) { }
+    private OrdersService: OrdersService
+  ) {}
 
   ngOnInit(): void {
     this.getUserData(this.route.snapshot.paramMap.get('id'));
     this.getWallet(this.route.snapshot.paramMap.get('id'));
+    this.getUserOrders(this.route.snapshot.paramMap.get('id'));
   }
-  getWallet(id){
-    this.walletService.get(id)
-      .subscribe(
-        data => {
-          this.wallet =   data;
-          console.log(data);
-          console.log(this.wallet.amount);
-
-          this.amount = this.wallet.amount;
-          // if(!data.amount){
-          // }
-        },
-        error => {
-          console.log(error);
+  getWallet(id) {
+    this.walletService.get(id).subscribe(
+      (data) => {
+        if (data == '') {
           this.createWallet = true;
 
-        });
+          this.addWallet();
+        }
+        this.wallet = data[0];
+        console.log(data);
+        console.log(this.wallet.amount);
+
+        this.amount = parseFloat(this.wallet.amount);
+        // if(!data.amount){
+        // }
+      },
+      (error) => {
+        console.log(error);
+        this.createWallet = true;
+      }
+    );
   }
-   addWallet( ){
+  addWallet() {
     this.amount += this.extra;
-    console.log(this.extra)
+    console.log(this.extra);
 
-    let wallet= {
-      userId: localStorage.getItem("UserId"),
-      amount: this.amount
+    let wallet = {
+      user_id: this.route.snapshot.paramMap.get('id'),
+      amount: this.amount,
     };
-    console.log(wallet)
-    if(this.createWallet){
-
-      this.walletService.create(wallet)
-      .subscribe(
-        data => {
+    console.log(wallet);
+    if (this.createWallet) {
+      this.walletService.create(wallet).subscribe(
+        (data) => {
           this.item = data;
           console.log(data);
-          
         },
-        error => {
+        (error) => {
           console.log(error);
-        });
+        }
+      );
     } else {
-      this.walletService.update(wallet.userId, wallet)
-      .subscribe(
-        data => {
+      this.walletService.update(wallet.user_id, wallet).subscribe(
+        (data) => {
           this.item = data;
           console.log(data);
-          
         },
-        error => {
+        (error) => {
           console.log(error);
-        });
+        }
+      );
     }
-    
-
   }
 
   getUserData(id) {
-    this.userService.get(id)
-      .subscribe(
-        data => {
-          this.item = data;
-          console.log(data);
-           
-
-
-        },
-        error => {
-          console.log(error);
-        });
+    this.userService.get(id).subscribe(
+      (data) => {
+        this.item = data[0];
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
+  getUserOrders(id) {
+    this.OrdersService.getOrdersByUserId(id).subscribe(
+      (data) => {
+        this.orders = data;
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }

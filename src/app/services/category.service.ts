@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const baseUrl = 'http://localhost:3000/categories';
+const baseUrl = 'http://192.168.0.213:8000/categories';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CategoryService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   create(data) {
     return this.http.post(baseUrl, data);
   }

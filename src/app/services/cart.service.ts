@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const baseUrl = 'http://localhost:3000/cart';
+const baseUrl = 'http://192.168.0.213:8000/apis/cart';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   create(data) {
-    return this.http.post(baseUrl, data);
+    return this.http.post(`${baseUrl}/cartadd/`, data);
   }
   getAll(id) {
-    return this.http.get(`${baseUrl}?userId=${id}`);
+    return this.http.get(`${baseUrl}/cartload/${id}`);
   }
 
   get(id) {
-    return this.http.get(`${baseUrl}/${id}`);
+    return this.http.get(`${baseUrl}/cartload/${id}/`);
   }
   update(id, data) {
     return this.http.put(`${baseUrl}/${id}`, data);
   }
 
-  delete(id) {
-    return this.http.delete(`${baseUrl}/${id}`);
+  remove(data) {
+    return this.http.post(`${baseUrl}/cartremove/`, data);
   }
 }

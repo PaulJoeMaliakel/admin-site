@@ -1,340 +1,494 @@
 <div class="container-fluid">
-<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" id="pending-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="true">Pending orders</a>
+      <a
+        (click)="getOrder()"
+        class="nav-link active"
+        id="pending-tab"
+        data-toggle="tab"
+        href="#pending"
+        role="tab"
+        aria-controls="pending"
+        aria-selected="true"
+        >Pending orders</a
+      >
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="approved-tab" data-toggle="tab" href="#approved" role="tab" aria-controls="approved" aria-selected="false">Approved orders</a>
+      <a
+        class="nav-link"
+        id="approved-tab"
+        data-toggle="tab"
+        href="#approved"
+        role="tab"
+        aria-controls="approved"
+        aria-selected="false"
+        >Approved orders</a
+      >
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="process-tab" data-toggle="tab" href="#process" role="tab" aria-controls="process" aria-selected="false">Processing orders</a>
+      <a
+        class="nav-link"
+        id="process-tab"
+        data-toggle="tab"
+        href="#process"
+        role="tab"
+        aria-controls="process"
+        aria-selected="false"
+        >Processing orders</a
+      >
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="ongoing-tab" data-toggle="tab" href="#ongoing" role="tab" aria-controls="ongoing" aria-selected="false">ongoing orders</a>
-      </li>
+      <a
+        class="nav-link"
+        id="ongoing-tab"
+        data-toggle="tab"
+        href="#ongoing"
+        role="tab"
+        aria-controls="ongoing"
+        aria-selected="false"
+        >ongoing orders</a
+      >
+    </li>
     <li class="nav-item">
-        <a class="nav-link" id="Complete-tab" data-toggle="tab" href="#Complete" role="tab" aria-controls="Complete" aria-selected="false">Completed orders</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="Cancelled-tab" data-toggle="tab" href="#Cancelled" role="tab" aria-controls="Cancelled" aria-selected="false">Cancelled orders</a>
-      </li>
+      <a
+        class="nav-link"
+        id="Complete-tab"
+        data-toggle="tab"
+        href="#Complete"
+        role="tab"
+        aria-controls="Complete"
+        aria-selected="false"
+        >Completed orders</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        id="Cancelled-tab"
+        data-toggle="tab"
+        href="#Cancelled"
+        role="tab"
+        aria-controls="Cancelled"
+        aria-selected="false"
+        >Cancelled orders</a
+      >
+    </li>
   </ul>
   <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade  show active" id="pending" role="tabpanel" aria-labelledby="pending-tab">
-
-
-        <div class="container-fluid">
-        <div class="card mb-3">
-            <div class="row no-gutters">
-              <div class="col-md-2">
-                <img src="" class="card-img" alt="">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h3 class="card-title">McDonalds</h3>
-                  <div class='row'>
-                      <div class="col-4">
-                        <p>Status:Pending</p>
-                      </div>
-                      <div class="col-4">
-                        <p>Order no:</p>
-                        
-                    </div>
-                    <div class="col-4">
-                        <p><i class="fa fa-clock-o" aria-hidden="true"></i>minutes ago</p>
-                        
-                    </div>
+    <div
+      class="tab-pane fade show active"
+      id="pending"
+      role="tabpanel"
+      aria-labelledby="pending-tab"
+    >
+      <div *ngFor="let data of orders; let i = index" class="container-fluid">
+        <div *ngIf="data.status == 'pending'" class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-2">
+              <img src="" class="card-img" alt="" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 class="card-title">Order No. {{ data.id }}</h3>
+                <div class="row">
+                  <div class="col-4">
+                    <p>Status:{{ data.status }}</p>
                   </div>
-                  <p style="color:green">
-                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                  </p>
-                  <p style="color:red">
-                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                  </p>
+                  <div class="col-4">
+                    <p>contact:{{ data.phone }}</p>
+                  </div>
+                  <div class="col-4">
+                    <p>
+                      <i class="fa fa-clock-o" aria-hidden="true"
+                        ><span>{{ data.created | date: "HH:mm" }}</span>
+                      </i>
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-2">
-                <div class="card-body ml-auto">
-                    <button style="width:100px;margin-bottom: 10px;" type="button" class="btn btn-success">Approve</button>
-                    <button style="width:100px;margin-bottom: 10px;"type="button" class="btn btn-warning">details</button>
-                    <button style="width:100px" type="button" class="btn btn-danger">cancel</button>
 
-                </div>
+                <p style="color: red">
+                  <i class="fa fa-map-marker" aria-hidden="true">{{
+                    data.del_address
+                  }}</i>
+                </p>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="card-body ml-auto">
+                <button
+                  (click)="orderupdate(data.id, data, 'approved')"
+                  style="width: 100px; margin-bottom: 10px"
+                  type="button"
+                  class="btn btn-success"
+                >
+                  Approve
+                </button>
+                <button
+                  style="width: 100px; margin-bottom: 10px"
+                  type="button"
+                  class="btn btn-warning"
+                >
+                  details
+                </button>
+                <button
+                  (click)="orderupdate(data.id, data, 'cancelled')"
+                  style="width: 100px"
+                  type="button"
+                  class="btn btn-danger"
+                >
+                  cancel
+                </button>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="approved"
+      role="tabpanel"
+      aria-labelledby="approved-tab"
+    >
+      <div *ngFor="let data of orders; let i = index" class="container-fluid">
+        <div *ngIf="data.status == 'approved'" class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-2">
+              <img src="" class="card-img" alt="" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 class="card-title">Order No. {{ data.id }}</h3>
+                <div class="row">
+                  <div class="col-4">
+                    <p>Status:{{ data.status }}</p>
+                  </div>
+                  <div class="col-4">
+                    <p>contact:{{ data.phone }}</p>
+                  </div>
+                  <div class="col-4">
+                    <p>
+                      <i class="fa fa-clock-o" aria-hidden="true"
+                        ><span>{{ data.created | date: "HH:mm" }}</span></i
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <p style="color: red">
+                  <i class="fa fa-map-marker" aria-hidden="true">{{
+                    data.del_address
+                  }}</i>
+                </p>
+                <div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="inputGroupSelect01"
+                        >Delivery boy</label
+                      >
+                    </div>
+                    <select
+                      [(ngModel)]="data.deliveryBoy"
+                      class="custom-select"
+                      id="inputGroupSelect01"
+                    >
+                      <option selected>Choose...</option>
+
+                      <option *ngFor="let i of boys" value="{{ i.id }}">
+                        {{ i.name }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="card-body ml-auto">
+                <button
+                  (click)="orderupdate(data.id, data, 'processing')"
+                  style="width: 100px; margin-bottom: 10px"
+                  type="button"
+                  class="btn btn-success"
+                >
+                  Process
+                </button>
+                <button
+                  style="width: 100px; margin-bottom: 10px"
+                  type="button"
+                  class="btn btn-warning"
+                >
+                  details
+                </button>
+                <button
+                  (click)="orderupdate(data.id, data, 'cancelled')"
+                  style="width: 100px"
+                  type="button"
+                  class="btn btn-danger"
+                >
+                  cancel
+                </button>
+              </div>
+            </div>
           </div>
-
-
-
-
+        </div>
+      </div>
     </div>
-    <div class="tab-pane fade" id="approved" role="tabpanel" aria-labelledby="approved-tab">
 
-
-
-
-        <div class="container-fluid">
-            <div class="card mb-3">
-                <div class="row no-gutters">
-                  <div class="col-md-2">
-                    <img src="" class="card-img" alt="">
+    <div
+      class="tab-pane fade"
+      id="process"
+      role="tabpanel"
+      aria-labelledby="process-tab"
+    >
+      <div *ngFor="let data of orders; let i = index" class="container-fluid">
+        <div *ngIf="data.status == 'processing'" class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-2">
+              <img src="" class="card-img" alt="" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 class="card-title">Order No. {{ data.id }}</h3>
+                <div class="row">
+                  <div class="col-4">
+                    <p>Status:{{ data.status }}</p>
                   </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h3 class="card-title">McDonalds</h3>
-                      <div class='row'>
-                          <div class="col-4">
-                            <p>Status:Approved</p>
-                          </div>
-                          <div class="col-4">
-                            <p>Order no:</p>
-                            
-                        </div>
-                        <div class="col-4">
-                            <p><i class="fa fa-clock-o" aria-hidden="true"></i>minutes ago</p>
-                            
-                        </div>
-                      </div>
-                      <p style="color:green">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      </p>
-                      <p style="color:red">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      </p>
-                    </div>
+                  <div class="col-4">
+                    <p>contact:{{ data.phone }}</p>
                   </div>
-                  <div class="col-md-2">
-                    <div class="card-body ml-auto">
-                        <button style="width:100px;margin-bottom: 10px;" type="button" class="btn btn-success">Process</button>
-                        <button style="width:100px;margin-bottom: 10px;"type="button" class="btn btn-warning">details</button>
-                        <button style="width:100px" type="button" class="btn btn-danger">cancel</button>
-    
-                    </div>
+                  <div class="col-4">
+                    <p>
+                      <i class="fa fa-clock-o" aria-hidden="true"
+                        ><span>{{ data.created | date: "HH:mm" }}</span></i
+                      >
+                    </p>
                   </div>
                 </div>
-              </div>
-              </div>
-    
-    
-    
 
-
-
-
-
-
-
-
-    </div>
-
-    <div class="tab-pane fade" id="process" role="tabpanel" aria-labelledby="process-tab">
-
-
-
-        
-        <div class="container-fluid">
-            <div class="card mb-3">
-                <div class="row no-gutters">
-                  <div class="col-md-2">
-                    <img src="" class="card-img" alt="">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h3 class="card-title">McDonalds</h3>
-                      <div class='row'>
-                          <div class="col-4">
-                            <p>Status:Processing</p>
-                          </div>
-                          <div class="col-4">
-                            <p>Order no:</p>
-                            
-                        </div>
-                        <div class="col-4">
-                            <p><i class="fa fa-clock-o" aria-hidden="true"></i>minutes ago</p>
-                            
-                        </div>
-                      </div>
-                      <p style="color:green">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      </p>
-                      <p style="color:red">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="card-body ml-auto">
-                        <button style="width:100px;margin-bottom: 10px;" type="button" class="btn btn-success">Shipped</button>
-                        <button style="width:100px;margin-bottom: 10px;"type="button" class="btn btn-warning">details</button>
-                        <button style="width:100px" type="button" class="btn btn-danger">cancel</button>
-    
-                    </div>
-                  </div>
+                <p style="color: red">
+                  <i class="fa fa-map-marker" aria-hidden="true">{{
+                    data.del_address
+                  }}</i>
+                </p>
+                <div *ngFor="let i of boys">
+                  <p *ngIf="i.id == data.deliveryBoy">
+                    Delivery boy: {{ i.name }}
+                  </p>
                 </div>
               </div>
+            </div>
+            <div class="col-md-2">
+              <div class="card-body ml-auto">
+                <button
+                  (click)="orderupdate(data.id, data, 'ongoing')"
+                  style="width: 100px; margin-bottom: 10px"
+                  type="button"
+                  class="btn btn-success"
+                >
+                  Shipped
+                </button>
+                <button
+                  style="width: 100px; margin-bottom: 10px"
+                  type="button"
+                  class="btn btn-warning"
+                >
+                  details
+                </button>
+                <button
+                  (click)="orderupdate(data.id, data, 'cancelled')"
+                  style="width: 100px"
+                  type="button"
+                  class="btn btn-danger"
+                >
+                  cancel
+                </button>
               </div>
-    
-    
-
-
-
-
-
-
-
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="tab-pane fade" id="ongoing" role="tabpanel" aria-labelledby="ongoing-tab">
-
-
-
-        <div class="container-fluid">
-            <div class="card mb-3">
-                <div class="row no-gutters">
-                  <div class="col-md-2">
-                    <img src="" class="card-img" alt="">
+    <div
+      class="tab-pane fade"
+      id="ongoing"
+      role="tabpanel"
+      aria-labelledby="ongoing-tab"
+    >
+      <div *ngFor="let data of orders; let i = index" class="container-fluid">
+        <div *ngIf="data.status == 'ongoing'" class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-2">
+              <img src="" class="card-img" alt="" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 class="card-title">Order No. {{ data.id }}</h3>
+                <div class="row">
+                  <div class="col-4">
+                    <p>Status:{{ data.status }}</p>
                   </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h3 class="card-title">McDonalds</h3>
-                      <div class='row'>
-                          <div class="col-4">
-                            <p>Status:Ongoing</p>
-                          </div>
-                          <div class="col-4">
-                            <p>Order no:</p>
-                            
-                        </div>
-                        <div class="col-4">
-                            <p><i class="fa fa-clock-o" aria-hidden="true"></i>minutes ago</p>
-                            
-                        </div>
-                      </div>
-                      <p style="color:green">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      </p>
-                      <p style="color:red">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      </p>
-                    </div>
+                  <div class="col-4">
+                    <p>contact:{{ data.phone }}</p>
                   </div>
-                  <div class="col-md-2">
-                    <div class="card-body ml-auto">
-                        <button style="width:100px;margin-bottom: 10px;" type="button" class="btn btn-success">done</button>
-                        <button style="width:100px;margin-bottom: 10px;"type="button" class="btn btn-warning">details</button>
-    
-                    </div>
+                  <div class="col-4">
+                    <p>
+                      <i class="fa fa-clock-o" aria-hidden="true">{{
+                        data.created | date: "HH:mm"
+                      }}</i>
+                    </p>
                   </div>
                 </div>
-              </div>
-              </div>
 
-
-    </div>
-    <div class="tab-pane fade" id="Complete" role="tabpanel" aria-labelledby="Complete-tab">
-
-
-
-        <div class="container-fluid">
-            <div class="card mb-3">
-                <div class="row no-gutters">
-                  <div class="col-md-2">
-                    <img src="" class="card-img" alt="">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h3 class="card-title">McDonalds</h3>
-                      <div class='row'>
-                          <div class="col-4">
-                            <p>Status:Completed</p>
-                          </div>
-                          <div class="col-4">
-                            <p>Order no:</p>
-                            
-                        </div>
-                        <div class="col-4">
-                            <p><i class="fa fa-clock-o" aria-hidden="true"></i>minutes ago</p>
-                            
-                        </div>
-                      </div>
-                      <p style="color:green">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      </p>
-                      <p style="color:red">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="card-body ml-auto">
-                        
-                        <button style="width:100px;margin-bottom: 10px;"type="button" class="btn btn-warning">details</button>
-    
-                    </div>
-                  </div>
+                <p style="color: red">
+                  <i class="fa fa-map-marker" aria-hidden="true">{{
+                    data.del_address
+                  }}</i>
+                </p>
+                <div *ngFor="let i of boys">
+                  <p *ngIf="i.id == data.deliveryBoy">
+                    Delivery boy: {{ i.name }}
+                  </p>
                 </div>
               </div>
+            </div>
+            <div class="col-md-2">
+              <div class="card-body ml-auto">
+                <button
+                  (click)="orderupdate(data.id, data, 'completed')"
+                  style="width: 100px; margin-bottom: 10px"
+                  type="button"
+                  class="btn btn-success"
+                >
+                  done
+                </button>
+                <button
+                  style="width: 100px; margin-bottom: 10px"
+                  type="button"
+                  class="btn btn-warning"
+                >
+                  details
+                </button>
               </div>
-
-
-
-
-
-
-
-
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="tab-pane fade" id="Cancelled" role="tabpanel" aria-labelledby="Cancelled-tab">
-
-
-        
-        <div class="container-fluid">
-            <div class="card mb-3">
-                <div class="row no-gutters">
-                  <div class="col-md-2">
-                    <img src="" class="card-img" alt="">
+    <div
+      class="tab-pane fade"
+      id="Complete"
+      role="tabpanel"
+      aria-labelledby="Complete-tab"
+    >
+      <div *ngFor="let data of orders; let i = index" class="container-fluid">
+        <div *ngIf="data.status == 'completed'" class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-2">
+              <img src="" class="card-img" alt="" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 class="card-title">Order No. {{ data.id }}</h3>
+                <div class="row">
+                  <div class="col-4">
+                    <p>Status:{{ data.status }}</p>
                   </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h3 class="card-title">McDonalds</h3>
-                      <div class='row'>
-                          <div class="col-4">
-                            <p>Status:cancelled</p>
-                          </div>
-                          <div class="col-4">
-                            <p>Order no:</p>
-                            
-                        </div>
-                        <div class="col-4">
-                            <p><i class="fa fa-clock-o" aria-hidden="true"></i>minutes ago</p>
-                            
-                        </div>
-                      </div>
-                      <p style="color:green">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      </p>
-                      <p style="color:red">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      </p>
-                    </div>
+                  <div class="col-4">
+                    <p>contact:{{ data.phone }}</p>
                   </div>
-                  <div class="col-md-2">
-                    <div class="card-body ml-auto">
-                        
-                        <button style="width:100px;margin-bottom: 10px;"type="button" class="btn btn-warning">details</button>
-    
-                    </div>
+                  <div class="col-4">
+                    <p>
+                      <i class="fa fa-clock-o" aria-hidden="true">{{
+                        data.created | date: "HH:mm"
+                      }}</i>
+                    </p>
                   </div>
                 </div>
+
+                <p style="color: red">
+                  <i class="fa fa-map-marker" aria-hidden="true">{{
+                    data.del_address
+                  }}</i>
+                </p>
+                <div *ngFor="let i of boys">
+                  <p *ngIf="i.id == data.deliveryBoy">
+                    Delivery boy: {{ i.name }}
+                  </p>
+                </div>
               </div>
+            </div>
+            <div class="col-md-2">
+              <div class="card-body ml-auto">
+                <button
+                  style="width: 100px; margin-bottom: 10px"
+                  type="button"
+                  class="btn btn-warning"
+                >
+                  details
+                </button>
               </div>
-
-
-
-
-
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <div
+      class="tab-pane fade"
+      id="Cancelled"
+      role="tabpanel"
+      aria-labelledby="Cancelled-tab"
+    >
+      <div *ngFor="let data of orders; let i = index" class="container-fluid">
+        <div *ngIf="data.status == 'cancelled'" class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-2">
+              <img src="" class="card-img" alt="" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 class="card-title">Order No. {{ data.id }}</h3>
+                <div class="row">
+                  <div class="col-4">
+                    <p>Status:{{ data.status }}</p>
+                  </div>
+                  <div class="col-4">
+                    <p>contact:{{ data.phone }}</p>
+                  </div>
+                  <div class="col-4">
+                    <p>
+                      <i class="fa fa-clock-o" aria-hidden="true">{{
+                        data.created | date: "HH:mm"
+                      }}</i>
+                    </p>
+                  </div>
+                </div>
 
-
+                <p style="color: red">
+                  <i class="fa fa-map-marker" aria-hidden="true">{{
+                    data.del_address
+                  }}</i>
+                </p>
+                <div *ngFor="let i of boys">
+                  <p *ngIf="i.id == data.deliveryBoy">
+                    Delivery boy: {{ i.name }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="card-body ml-auto">
+                <button
+                  style="width: 100px; margin-bottom: 10px"
+                  type="button"
+                  class="btn btn-warning"
+                >
+                  details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

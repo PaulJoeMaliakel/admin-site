@@ -1,75 +1,78 @@
 <div class="row">
-    <div class="col-10">
-        <div class="card">
-            <div class="card-header" style="display:flex;justify-content: space-between;">
-                <div>
-                 <h3 class="font-weight-bold"><i class="fa fa-user mr-1" aria-hidden="true"></i>Admin Report</h3>
-
-                </div>
-               <!-- <ngx-datepicker [(ngModel)]="model"></ngx-datepicker> -->
-               <!-- <input type="text" ngxDaterangepickerMd [(ngModel)]="selected" class="form-control"/> -->
-               <div>
-               <input type="date" class="form-control">
-
-               </div>
-            </div>
-            <div class="card-body">
-                 
-                <table class="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th scope="col">Order No.</th>
-                        <th scope="col">Order Date</th>
-                        <th scope="col">A=total Amount</th>
-                        <th scope="col">Site Commission</th>
-                        <th scope="col">Delivery Charge</th>
-                        <th scope="col">Admin Earning Amount</th>
-                        <th scope="col">Order Status</th>
-                        <th scope="col">Payment Method</th>
-                
-                        
-                
-                      </tr>
-                    </thead>
-                    <tbody>
-                        
-                      <tr>
-                        <td scope="row"> 42342342323</td>
-                        <td> 12-02-2012 </td>
-                        <td></td>
-                        <td>550</td>
-                        <td> 50</td>
-                        <td> 100 </td>
-                        <td> completed</td>
-                        <td>  COD</td>
-                      </tr>
-                      <tr>
-                          <td colspan=7>
-                              Total Fare
-                          </td>
-                          <td> 1000</td>
-                      </tr>
-                      <tr>
-                        <td colspan=7>
-                            Total Site Commission
-                        </td>
-                        <td> 1000</td>
-                      </tr>
-                      <tr>
-                        <td colspan=7>
-                            Total Delivery Charge
-                        </td>
-                        <td> 1000</td>
-                      </tr>
-                      <tr>
-                        <td colspan=7>
-                            Total Restaurant Payment
-                        </td>
-                        <td> 1000</td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
+  <div class="col-10">
+    <div class="card">
+      <div
+        class="card-header"
+        style="display: flex; justify-content: space-between"
+      >
+        <div>
+          <h3 class="font-weight-bold">
+            <i class="fa fa-user mr-1" aria-hidden="true"></i>Admin Report
+          </h3>
         </div>
+        <!-- <ngx-datepicker [(ngModel)]="model"></ngx-datepicker> -->
+        <!-- <input type="text" ngxDaterangepickerMd [(ngModel)]="selected" class="form-control"/> -->
+        <div style="display: flex">
+          <input [(ngModel)]="fromDate" type="date" class="form-control" />
+          <input [(ngModel)]="toDate" type="date" class="form-control" />
+          <button
+            (click)="getReport()"
+            style="height: 40px"
+            type="button"
+            class="btn btn-primary"
+          >
+            Process
+          </button>
+        </div>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Order No.</th>
+              <th scope="col">Order Date</th>
+              <th scope="col">A=total Amount</th>
+              <th scope="col">Restaurant Commission</th>
+              <th scope="col">Delivery Charge</th>
+              <th scope="col">Profit</th>
+              <th scope="col">delivery boy Id</th>
+
+              <th scope="col">Order Status</th>
+              <th scope="col">Payment Method</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of earnings">
+              <td scope="row">{{ data.orderId }}</td>
+              <td>{{ data.created }}</td>
+              <td>{{ data.total }}</td>
+              <td>{{ data.wtotal }}</td>
+              <td>50</td>
+              <td>{{ data.profit }}</td>
+              <td>{{ data.dboy }}</td>
+
+              <td>{{ data.status }}</td>
+              <td>COD</td>
+            </tr>
+            <tr>
+              <td colspan="8">Total Fare</td>
+              <td>{{ ftotal }}</td>
+            </tr>
+            <tr>
+              <td colspan="7">Total restaurant Commission</td>
+              <td>{{ fwtotal }}</td>
+            </tr>
+            <tr>
+              <td colspan="7">Total Delivery Charge</td>
+              <td>1000</td>
+            </tr>
+            <tr>
+              <td colspan="7">Total Profit</td>
+              <td>{{ fprofit }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
 </div>

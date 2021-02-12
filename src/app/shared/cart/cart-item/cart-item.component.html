@@ -1,0 +1,16 @@
+<div class="cart-item" style="display: flex; justify-content: space-between">
+  <div class="list">
+    <span>{{ cItem.productTitle }}</span> x <span>{{ cItem.qty }}</span
+    >: <strong>{{ cItem.opriceT | currency: "INR" }}</strong>
+    <div>
+      <Strong>{{ shopName }}</Strong>
+    </div>
+  </div>
+  <button
+    (click)="itemRemove(cItem.item_id)"
+    type="button"
+    class="btn btn-primary btn-sm subract"
+  >
+    -
+  </button>
+</div>

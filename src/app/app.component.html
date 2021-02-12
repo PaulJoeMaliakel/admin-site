@@ -1,129 +1,21 @@
-<div class="row wrapper">
-<div class="col-md-2">
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>BoxAll</h3>
-        </div>
-  
-        <ul class="list-unstyled components">
-            <p>Super Admin</p>
-            <li>
-              <a routerLink="/dashboard"><i class="fa fa-tachometer mr-1" aria-hidden="true"></i>Dashboard</a>
-          </li>
-            <li>
-              <a routerLink="/dispatcher"><i class="fa fa-eye mr-1" aria-hidden="true"></i>
-                  Dispatcher</a>
-          </li>
-  
-            <li class="active">
-                <a href="#resSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-shopping-bag mr-1" aria-hidden="true"></i>
-                  Shop List</a>
-                <ul class="collapse list-unstyled" id="resSubmenu">
-                    <li>
-                        <a routerLink="/restaurants">All shops</a>
-                    </li>
-                   
-                </ul>
-            </li>
-            <li>
-                <a href="#delSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-truck mr-1" aria-hidden="true"></i>
-                  Delivery People</a>
-                <ul class="collapse list-unstyled" id="delSubmenu">
-                    <li>
-                        <a routerLink="/delivery-people">All Delivery People</a>
-                    </li>
-                    
-                </ul>
-            </li>
-            <li>
-              <a routerLink="/users"><i class="fa fa-user mr-1" aria-hidden="true"></i>
-                  User</a>
-            </li>
-            <li>
-              <a routerLink="/orders-deliveries-list"><i class="fa fa-list mr-1" aria-hidden="true"></i>
-                  Order Delivery List</a>
-            </li>
-            <li>
-              <a href="#revSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-comments mr-1" aria-hidden="true"></i>
-                  Reviews</a>
-              <ul class="collapse list-unstyled" id="revSubmenu">
-                  <li>
-                      <a href="#">Restaurant Reviews</a>
-                  </li>
-                  <li>
-                      <a href="#">Driver Reviews</a>
-                  </li>
-                  
-              </ul>
-            </li>
-            <li>
-              <a href="#repSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-money mr-1" aria-hidden="true"></i>
-                  Earnings Report</a>
-              <ul class="collapse list-unstyled" id="repSubmenu">
-                  <li>
-                      <a routerLink="/admin-report">Admin Reports</a>
-                  </li>
-                  <li>
-                      <a routerLink="/shop-report">Restaurant Reports</a>
-                  </li>
-                  <li>
-                    <a href="#">Driver Reports</a>
-                </li>
-                  
-              </ul>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-gift mr-1" aria-hidden="true"></i>
-                  Promocode</a>
-            </li>
-            <li>
-              <a routerLink="/categories"><i class="fa fa-book mr-1" aria-hidden="true"></i>
-                  Categories</a>
-          </li>
-           
-        </ul>
-  
-        
-    </nav>
-</div>
-  <!-- Sidebar  -->
-  
+<ng-container *ngIf="!authService.isLoggedIn()">
+  <div class="row" style="text-align: left; margin-right: 0; height: 100%">
+    <div class="col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</ng-container>
 
+<ng-container *ngIf="authService.isLoggedIn()">
+  <div class="row">
+    <div class="col-2">
+      <app-navigation></app-navigation>
+    </div>
 
+    <div class="col-9" style="text-align: left; margin-top: 40px">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</ng-container>
 
-  <!-- Page Content  -->
- 
-   
-          <div class="col-md-8">
-            <div id="content">
-
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid">
-          
-                        <button type="button" id="sidebarCollapse" class="btn btn-info">
-                            <i class="fas fa-align-left"></i>
-                            <span>Toggle Sidebar</span>
-                        </button>
-                        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <i class="fas fa-align-justify"></i>
-                        </button>
-          
-                        
-                            <ul class="nav navbar-nav ml-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">logout</a>
-                                </li>
-                                
-                               
-                            </ul>
-                        
-                    </div>
-                </nav>
-            <router-outlet></router-outlet>
-          </div>
-      </div>
-
-      
-
- 
-</div>
+<!-- <router-outlet></router-outlet> -->

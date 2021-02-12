@@ -21,55 +21,142 @@ import { ShoppingModule } from './shopping/shopping.module';
 
 import { AdminReportComponent } from './report/admin-report/admin-report.component';
 import { ShopReportComponent } from './report/shop-report/shop-report.component';
-
+import { ShopReportDetailComponent } from './report/shop-report/shop-report-detail/shop-report-detail.component';
+import { LoginComponent } from './login/login.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  {path: 'dashboard', component: DashboardComponent},
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full',
+  },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'navigation',
+    component: NavigationComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
 
-  {path: 'dispatcher', component: DispatcherComponent},
-  {path: 'restaurants', component: RestaurantsComponent},
-  {path: 'categories', component: CategoriesComponent},
-  {path: 'add-category', component: AddCategoryComponent},
-  {path: 'edit-category/:id', component: EditCategoryComponent},
+  {
+    path: 'dispatcher',
+    component: DispatcherComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'restaurants',
+    component: RestaurantsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'categories',
+    component: CategoriesComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'add-category',
+    component: AddCategoryComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'edit-category/:id',
+    component: EditCategoryComponent,
+    canActivate: [AuthGuard],
+  },
 
+  {
+    path: 'restaurants',
+    component: RestaurantsComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'menu/:id', component: MenuComponent, canActivate: [AuthGuard] },
+  {
+    path: 'add-item/:id',
+    component: AddItemComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'edit-item/:id',
+    component: EditItemComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin-report',
+    component: AdminReportComponent,
+    canActivate: [AuthGuard],
+  },
 
+  {
+    path: 'edit-restaurant/:id',
+    component: EditRestaurantComponent,
+    canActivate: [AuthGuard],
+  },
 
-  {path: 'restaurants', component: RestaurantsComponent}, 
-  {path: 'menu/:id', component: MenuComponent},
-  {path: 'add-item/:id', component: AddItemComponent},
-  {path: 'edit-item/:id', component: EditItemComponent},
-  {path: 'admin-report', component: AdminReportComponent}, 
-  
+  {
+    path: 'addRestaurant',
+    component: AddrestaurantComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'shop-report',
+    component: ShopReportComponent,
+    canActivate: [AuthGuard],
+  },
 
+  {
+    path: 'delivery-people',
+    component: DeliveryPeopleComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'delivery-people-details/:id',
+    component: DeliveryPeopleDetailsComponent,
+    canActivate: [AuthGuard],
+  },
 
-  {path: 'edit-restaurant/:id', component: EditRestaurantComponent},
+  {
+    path: 'edit-delivery-people',
+    component: EditDeliveryPeopleComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'orders-deliveries-list',
+    component: OrderDeliveriesListComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'order-details/:id',
+    component: OrderDetailsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'shop-report-detail/:id/:fromDate/:toDate',
+    component: ShopReportDetailComponent,
+    canActivate: [AuthGuard],
+  },
 
-  
-  {path: 'addRestaurant', component: AddrestaurantComponent},
-  {path: 'shop-report', component: ShopReportComponent},
-
-
-  {path: 'delivery-people', component: DeliveryPeopleComponent},
-  {path: 'delivery-people-details/:id', component: DeliveryPeopleDetailsComponent},
-
-  {path: 'edit-delivery-people', component: EditDeliveryPeopleComponent},
-  {path: 'orders-deliveries-list', component: OrderDeliveriesListComponent},
-  {path: 'order-details', component: OrderDetailsComponent},
-  {path : 'users', loadChildren : './users/users.module#UsersModule'},
-  {path : 'shopping', loadChildren : './shopping/shopping.module#ShoppingModule'},
-
-
-
+  {
+    path: 'users',
+    loadChildren: './users/users.module#UsersModule',
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'shopping',
+    loadChildren: './shopping/shopping.module#ShoppingModule',
+    canActivate: [AuthGuard],
+  },
 
   // {path: 'menu', component: MenuComponent},
-
-
-
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
